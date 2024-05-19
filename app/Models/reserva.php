@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class instalacion extends Model
+class reserva extends Model
 {
     use HasFactory;
     protected $table = 'reservas'; //indicamos la tabla de referencia

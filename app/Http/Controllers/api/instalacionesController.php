@@ -85,7 +85,6 @@ class instalacionesController extends Controller
         if (is_null($instalacion)){
             return abort(404);
         }
-        $instalacion = instalacion::find($id);
         $instalacion->delete();
         return json_encode(['instalacion' => $instalacion,'success'=>true]);
     }

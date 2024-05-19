@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class instalacion extends Model
+class entrenador extends Model
 {
     use HasFactory;
     protected $table = 'entrenadores'; //indicamos la tabla de referencia
