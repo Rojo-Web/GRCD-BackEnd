@@ -64,7 +64,16 @@ class clientesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cliente = cliente::find($id);
+        if (is_null($cliente)){
+            return abort(404);
+        }
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido = $request->apellido;
+        $cliente->telefono = $request->telefono;
+        $cliente->email = $request->email;
+        $cliente->save();
+        return json_encode(['cliente' => $cliente,'success'=>true]);
     }
 
     /**
@@ -72,6 +81,11 @@ class clientesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cliente = cliente::find($id);
+        if (is_null($cliente)){
+            return abort(404);
+        }
+        $cliente->delete();
+        return json_encode(['cliente' => $cliente,'success'=>true]);
     }
 }
