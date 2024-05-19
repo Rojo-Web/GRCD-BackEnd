@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->foreignId('instalacion_id')->nullable()->references('id')->on('instalaciones');
             $table->foreignId('entrenador_id')->nullable()->references('id')->on('entrenadores');
-            $table->timestamps('hora_inicio');
+            $table->timestamp('hora_inicio')->nullable();
             $table->integer('duracion');
             $table->timestamps();
         });

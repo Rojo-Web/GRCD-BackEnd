@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('instalacion_id')->nullable()->references('id')->on('instalaciones');
             $table->foreignId('cliente_id')->nullable()->references('id')->on('clientes');
-            $table->timestamps('fecha_hora_inicio');
-            $table->timestamps('fecha_hora_final');
+            $table->timestamp('fecha_hora_inicio')->nullable();
+            $table->timestamp('fecha_hora_final')->nullable();
             $table->string('estado');
             $table->timestamps();
         });
