@@ -26,8 +26,8 @@ class clientesController extends Controller
         $validate = Validator::make($request->all(),[
             'nombre'=> ['required'],
             'apellido'=> ['required'],
-            'telefono'=> ['required','unique'],
-            'email'=> ['required','unique'],
+            'telefono'=> ['required'],
+            'email'=> ['required'],
 
         ]);
 

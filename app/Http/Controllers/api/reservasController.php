@@ -30,8 +30,8 @@ class reservasController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(),[
-            'instalacion_id'=> ['required','number'],
-            'cliente_id'=> ['required','number'],
+            'instalacion_id'=> ['required','integer'],
+            'cliente_id'=> ['required','integer'],
             'fecha_hora_inicio'=> ['required'],
             'fecha_hora_final'=> ['required'],
             'estado'=> ['required'],

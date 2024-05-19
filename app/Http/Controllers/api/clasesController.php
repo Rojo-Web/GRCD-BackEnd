@@ -32,10 +32,10 @@ class clasesController extends Controller
         $validate = Validator::make($request->all(),[
             'nombre'=> ['required'],
             'descripcion'=> ['required'],
-            'instalacion_id'=> ['required','number'],
-            'entrenador_id'=> ['required','number'],
+            'instalacion_id'=> ['required','integer'],
+            'entrenador_id'=> ['required','integer'],
             'hora_inicio'=> ['required'],
-            'duracion'=> ['required','number'],
+            'duracion'=> ['required','integer'],
         ]);
 
         if($validate->fails()){

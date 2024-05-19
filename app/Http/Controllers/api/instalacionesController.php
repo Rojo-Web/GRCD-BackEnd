@@ -27,7 +27,7 @@ class instalacionesController extends Controller
         $validate = Validator::make($request->all(),[
             'nombre'=> ['required'],
             'tipo'=> ['required'],
-            'capacidad'=> ['required','min:10'],
+            'capacidad'=> ['required','integer'],
             'disponibilidad'=> ['required'],
         ]);
 
@@ -40,7 +40,7 @@ class instalacionesController extends Controller
         $instalacion = new instalacion();
         $instalacion->nombre = $request->nombre;
         $instalacion->tipo = $request->tipo;
-        $instalacion->capacidad = intval($request->capacidad);
+        $instalacion->capacidad = $request->capacidad;
         $instalacion->disponibilidad = $request->disponibilidad;
         $instalacion->id = $request->id;
         $instalacion->save();
