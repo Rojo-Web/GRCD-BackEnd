@@ -68,6 +68,19 @@ class instalacionesController extends Controller
         if (is_null($instalacion)){
             return abort(404);
         }
+        $validate = Validator::make($request->all(),[
+            'nombre'=> ['required'],
+            'tipo'=> ['required'],
+            'capacidad'=> ['required','integer'],
+            'disponibilidad'=> ['required'],
+        ]);
+
+        if($validate->fails()){
+            return response()->json([
+                'msg'=> 'Se produjo un error en la validacion de la informacion ',
+                'statusCode'=> 400
+            ]);
+        }
         $instalacion->nombre = $request->nombre;
         $instalacion->tipo = $request->tipo;
         $instalacion->capacidad = intval($request->capacidad);

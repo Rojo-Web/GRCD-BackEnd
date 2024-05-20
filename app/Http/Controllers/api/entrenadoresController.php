@@ -67,6 +67,19 @@ class entrenadoresController extends Controller
         if (is_null($entrenador)){
             return abort(404);
         }
+        $validate = Validator::make($request->all(),[
+            'nombre'=> ['required'],
+            'apellido'=> ['required'],
+            'especialidad'=> ['required'],
+
+        ]);
+
+        if($validate->fails()){
+            return response()->json([
+                'msg'=> 'Se produjo un error en la validacion de la informacion ',
+                'statusCode'=> 400
+            ]);
+        }
         $entrenador->nombre = $request->nombre;
         $entrenador->apellido = $request->apellido;
         $entrenador->especialidad = $request->especialidad;

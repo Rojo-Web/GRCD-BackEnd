@@ -83,6 +83,21 @@ class reservasController extends Controller
         if (is_null($reserva)){
             return abort(404);
         }
+        $validate = Validator::make($request->all(),[
+            'instalacion_id'=> ['required','integer'],
+            'cliente_id'=> ['required','integer'],
+            'fecha_hora_inicio'=> ['required'],
+            'fecha_hora_final'=> ['required'],
+            'estado'=> ['required'],
+
+        ]);
+
+        if($validate->fails()){
+            return response()->json([
+                'msg'=> 'Se produjo un error en la validacion de la informacion ',
+                'statusCode'=> 400
+            ]);
+        }
         $reserva->instalacion_id = $request->instalacion_id;
         $reserva->cliente_id = $request->cliente_id;
         $reserva->fecha_hora_inicio = $request->fecha_hora_inicio;

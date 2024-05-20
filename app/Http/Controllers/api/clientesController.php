@@ -68,6 +68,20 @@ class clientesController extends Controller
         if (is_null($cliente)){
             return abort(404);
         }
+        $validate = Validator::make($request->all(),[
+            'nombre'=> ['required'],
+            'apellido'=> ['required'],
+            'telefono'=> ['required'],
+            'email'=> ['required'],
+
+        ]);
+
+        if($validate->fails()){
+            return response()->json([
+                'msg'=> 'Se produjo un error en la validacion de la informacion ',
+                'statusCode'=> 400
+            ]);
+        }
         $cliente->nombre = $request->nombre;
         $cliente->apellido = $request->apellido;
         $cliente->telefono = $request->telefono;

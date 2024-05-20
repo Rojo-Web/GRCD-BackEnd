@@ -84,6 +84,21 @@ class clasesController extends Controller
         if (is_null($clase)){
             return abort(404);
         }
+        $validate = Validator::make($request->all(),[
+            'nombre'=> ['required'],
+            'descripcion'=> ['required'],
+            'instalacion_id'=> ['required','integer'],
+            'entrenador_id'=> ['required','integer'],
+            'hora_inicio'=> ['required'],
+            'duracion'=> ['required','integer'],
+        ]);
+
+        if($validate->fails()){
+            return response()->json([
+                'msg'=> 'Se produjo un error en la validacion de la informacion ',
+                'statusCode'=> 400
+            ]);
+        }
         $clase->instalacion_id = $request->instalacion_id;
         $clase->entrenador_id = $request->entrenador_id;
         $clase->hora_inicio = $request->hora_inicio;
