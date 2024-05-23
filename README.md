@@ -1,4 +1,4 @@
-<h1>Sistema de Gestión de Reservas para Centros Deportivos<\h1>
+<h1>Sistema de Gestión de Reservas para Centros Deportivos</h1>
 
 Este proyecto es un sistema de gestión de reservas para centros deportivos, desarrollado con Laravel 11 para el backend y Vue.js para el frontend. La aplicación permite la gestión de instalaciones deportivas, reservas de espacios, clientes, clases, entrenadores y equipamiento. Se utiliza MySQL para la base de datos, con migraciones de Laravel para definir las estructuras de las tablas. También se implementan API RESTful en Laravel y se utiliza Axios en Vue.js para las peticiones al backend.
 
